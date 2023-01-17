@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="es-ve">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel= "stylesheet" type= "text/css" herf= "http.//fonts.googleapis.com/css">
+  <link rel="stylesheet" href="css/estilos.css">
+  <meta name="description" content="Convierte dólares a bolívares utilizando la tasa del Banco Central de Venezuela usando CalculApp tu App de compras.">
+  <meta name="keywords" content="Calculadora, Dolares en Venezuela, Dolares a Bolivares, Como Cambiar Dolares en Venezuela.">
+
+<meta http-equiv="cache-control" content="max-age=0" />
+  <meta http-equiv="cache-control" content="no-cache" />
+  <meta http-equiv="expires" content="0" />
+  <meta http-equiv="expires" content="Tue, 01 Jan 2050 1:00:00 GMT" />
+  <meta http-equiv="pragma" content="no-cache" />
+  
+
+  <title>Calduladora Dólares a Bolívares Online</title>
+  </head>
+<body>
+<!-- Formulario -->
+<div class="formulario" id="formulario1">
+  <img src="img/calculaap1.jpg" alt="">
+  <form id="conversion-form">
+    <label for="dollars">Cantidad de Dólares:</label><br>
+    <input type="number" id="dollars" step="0.01" min="0" max="10000" placeholder="Monto en $" ><br>
+    <button type="submit">Calcular</button>
+    <button type="button" id="reset-button">Borrar</button>
+  </form> 
+  </div>
+<!-- Fin Formulario -->
+
+<!-- Tasa y Fecha -->
+<p>Tasa <a href="https://www.bcv.org.ve" target="_blank">BCV</a> <strong>19.97 Bs</strong></p>
+<div class="post-meta">
+ <b>Última actualización:</b> <span class="updated">
+    <script>
+      var d = new Date();
+      document.write(d.toLocaleString());
+    </script>
+  </span>
+</div>
+<p>Monto a Pagar: <span id="result"></span></p><br>
+
+<!-- Script Ejecutable -->
+
+<script>
+    const form = document.getElementById('conversion-form');
+    const resultElement = document.getElementById('result');
+    const rate = 19.97;
+
+    form.addEventListener('submit', event => {
+      event.preventDefault();
+      const dollars = form.elements.dollars.value;
+      const bolivares = dollars * rate;
+      resultElement.textContent = `${bolivares.toFixed(2)} Bs.D`;
+    });
+
+    const resetButton = document.getElementById('reset-button');
+resetButton.addEventListener('click', event => {
+  form.elements.dollars.value = '';
+  resultElement.textContent = '';
+});
+
+  </script>
+
+<!-- Footer -->
+<p>Anuncios ▾</p>
+<a href="https://cabiguia.com" target="_blank">Cabiguia, Anuncios Clasificados en Venezuela</a>
+<div class="footer">
+<footer>
+<a href="terminos-de-uso.html">Términos de Uso</a>
+<a href="https://agmedia-marketing.github.io/home" target="_blank">AG Media</a>
+<a href="https://cabiguia.com" target="_blank">Anuncios Clasificados</a>
+<p>© AG Media 2023 - Derechos Reservados | Venezuela</p>
+</footer>
+</div>
+
+</body>
+</html>
